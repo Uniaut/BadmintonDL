@@ -56,7 +56,7 @@ def annotate_video(capture: cv2.VideoCapture) -> list[tuple[int, str]]:
     '''
     start_frame = 0
     end_frame = int(capture.get(cv2.CAP_PROP_FRAME_COUNT))
-    skip_frames = 30
+    skip_frames = 10
 
     sequence = []
 

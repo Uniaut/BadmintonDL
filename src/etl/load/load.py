@@ -15,6 +15,9 @@ def save_events_as_tsv(events: list[tuple[int, str]], video_id: str):
         events: list[tuple[int, str]] - events to save
         video_id: str - video id
     '''
+    if not os.path.exists(config.LABELS_PATH):
+        os.makedirs(config.LABELS_PATH)
+    
     file_path = os.path.join(config.LABELS_PATH, f'events_{video_id}.tsv')
     with open(file_path, 'w') as f:
         writer = csv.writer(f, delimiter='\t')
