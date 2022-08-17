@@ -10,7 +10,6 @@ import numpy as np
 import os
 
 import cv2
-import pytesseract
 
 import src.config as config
 import src.etl.transform.feature_extract.utils as feutils
@@ -84,8 +83,6 @@ def get_score_data(frame: cv2.Mat) -> tuple[tuple[int, int, int], tuple[float, f
         else:
             result = (game_num, score1[0], score2[0])
     return (result, (score1[1], score2[1]))
-
-
 
 
 # simple heuristic validation code

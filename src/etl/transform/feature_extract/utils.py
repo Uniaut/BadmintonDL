@@ -4,7 +4,6 @@ import numpy as np
 import os
 
 import cv2
-import pytesseract
 
 import src.utils as utils
 import src.config as config
@@ -71,18 +70,3 @@ def mse_from_template_and_frame(frame: cv2.Mat, crop_area_key: str, template_nam
     template = get_template(template_name)
     template = cv2.GaussianBlur(template, (3, 3), 0)
     return mse(cropped, template)
-
-
-pytesseract.pytesseract.tesseract_cmd = config.TESSERACT_PATH
-def get_digits(image: cv2.Mat) -> str:
-    '''
-    get digits from image
-    PARAMETERS:
-        image: cv2.Mat - image to get digits
-    '''
-    if len(image.shape) == 3:
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    elif len(image.shape) == 2:
-        image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
-    text = pytesseract.image_to_string(image, config=config.TESSERACT_CONFIG)
-    return text

@@ -12,7 +12,7 @@ import src.config as config
 def main():
     # extract
     url = config.CHANNEL_URL
-    dl.filter_dl(url, 70)
+    dl.filter_dl(url, 10)
 
     # glob videos
     videos = glob.glob(os.path.join(config.VIDEOS_PATH, '*.mp4'))
