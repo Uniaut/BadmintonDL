@@ -4,6 +4,7 @@ dummy/*
 labels/*
 videos/*
 data/*
+src/config.py
 
 
 ### default ###
