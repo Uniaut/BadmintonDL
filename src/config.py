@@ -5,7 +5,7 @@ CHANNEL_URL = 'https://www.youtube.com/c/bwftv/videos'
 PLAYLIST_URL = 'https://www.youtube.com/watch?v=teUN-6Us8Uw&list=PLA7ZcagI0frAvDm00pnfYC8hrSlfOXs_Z'
 
 VIDEO_FPS = 30
-VIDEOS_ROOT = os.path.join('R:', 'Datasets', 'BadmintonDL')
+VIDEOS_ROOT = os.path.join('R:/', 'Datasets', 'BadmintonDL')
 VIDEOS_PATH = os.path.join(VIDEOS_ROOT, 'videos')
 VIDEOS_ARCHIVE_PATH = os.path.join(VIDEOS_ROOT, 'videos_list.txt')
 MINIMUM_DURATION = 3 * 3600

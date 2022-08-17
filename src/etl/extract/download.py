@@ -12,6 +12,7 @@ def video_filter(info, *, incomplete):
 
 
 def filter_dl(urls, n):
+    print(config.VIDEOS_PATH)
     ydl_opts = {
         'match_filter': video_filter,
         'outtmpl': '%(id)s.%(ext)s',
