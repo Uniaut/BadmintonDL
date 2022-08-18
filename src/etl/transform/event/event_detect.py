@@ -64,7 +64,7 @@ def event_detection(sequence: list) -> list:
         if prev_game[1] + 1 == now_game[1] or prev_game[2] + 1 == now_game[2]:
             court_swap = now_game[0] == 2 or (now_game[0] == 3 and (now_game[1] >= 11 or now_game[2] >= 11))
             winner_position = 'top' if court_swap ^ now_winner==1 else 'bottom'
-            events.append((frame_no, f'score player {now_winner} on winner_position'))
+            events.append((frame_no, f'score player {now_winner} on {winner_position}'))
             valid_event = True
         
         if not valid_event:
