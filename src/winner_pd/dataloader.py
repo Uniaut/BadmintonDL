@@ -29,11 +29,19 @@ class BadmintonDataset(Dataset):
     def load_labels(self):
         labels = []
         play_tuple = []
-        with open(self.data_path, 'r') as tsvfile:
+        with open(self.data_path, 'r', newline='\n') as tsvfile:
             readCSV = csv.reader(tsvfile, delimiter='\t')
             for row in readCSV:
-                frame_n, value = row
-                print(frame_n, value)
+                frame_no, desc = row
+                frame_no = int(frame_no)
+                if desc.startswith('play_start'):
+                    start = frame_no
+                if desc.startswith('score') and start is not None:
+                    end = frame_no
+                    play_tuple.append((start, end, desc))
+                    start, end = None, None
+        for play in play_tuple:
+            labels.append((play[0], play[1], play[2]))
         return labels
 
     def __len__(self):
