@@ -1,4 +1,5 @@
 import csv
+from email import header
 import glob
 import os
 
@@ -30,7 +31,7 @@ class BadmintonDataset(Dataset):
         labels = []
         play_tuple = []
         with open(self.data_path, 'r', newline='\n') as tsvfile:
-            readCSV = csv.reader(tsvfile, delimiter='\t')
+            readCSV = csv.reader(tsvfile, delimiter='\t', header=None)
             for row in readCSV:
                 frame_no, desc = row
                 frame_no = int(frame_no)
@@ -41,7 +42,7 @@ class BadmintonDataset(Dataset):
                     play_tuple.append((start, end, desc))
                     start, end = None, None
         for play in play_tuple:
-            labels.append((play[0], play[1], play[2]))
+            print()
         return labels
 
     def __len__(self):
